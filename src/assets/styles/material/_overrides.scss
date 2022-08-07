@@ -1,0 +1,362 @@
+.mat-form-field.mat-form-field-appearance-fill {
+
+  /* Disabled */
+  &.mat-form-field-disabled {
+    opacity: 0.7 !important;
+  }
+
+  /* Invalid */
+  &.mat-form-field-invalid {
+
+    .mat-form-field-wrapper {
+
+      /* Border color */
+      .mat-form-field-flex {
+        @apply border-purple-500 dark:border-purple-900 #{!important};
+      }
+    }
+  }
+
+  /* Focused */
+  &.mat-focused {
+
+    .mat-form-field-wrapper {
+
+      /* Background color */
+      .mat-form-field-flex {
+        @apply bg-slate-800 dark:bg-slate-800 #{!important};
+      }
+    }
+  }
+
+  /* Focused and valid fields */
+  &.mat-focused:not(.mat-form-field-invalid) {
+
+    .mat-form-field-wrapper {
+
+      /* Border color */
+      .mat-form-field-flex {
+        @apply border-blue-500 dark:border-x-white #{!important};
+      }
+    }
+  }
+
+  /* Disable floating mat-label */
+  &.mat-form-field-has-label.mat-form-field-can-float.mat-form-field-should-float {
+
+    .mat-form-field-label-wrapper {
+
+      .mat-form-field-label {
+        width: 100% !important;
+        transform: none !important;
+      }
+    }
+  }
+
+  /* Remove the default arrow for native select */
+  &.mat-form-field-type-mat-native-select {
+
+    .mat-form-field-infix {
+
+      select {
+        top: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-right: 18px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2364748B' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right -7px center;
+        background-size: 24px;
+
+        .dark & {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2397a6ba' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  /* Adjustments for mat-label */
+  &.mat-form-field-has-label {
+
+    .mat-form-field-wrapper {
+      margin-top: 24px;
+    }
+  }
+
+  /* Default style tweaks and enhancements */
+  .mat-form-field-wrapper {
+    margin-bottom: 16px;
+    padding-bottom: 0;
+
+    .mat-form-field-flex {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      min-height: 48px;
+      border-radius: 6px;
+      padding: 0 16px;
+      border-width: 1px;
+      @apply shadow-sm bg-white border-gray-300 dark:bg-black dark:bg-opacity-5 dark:border-gray-500 #{!important};
+
+      .mat-form-field-prefix {
+
+        >.mat-icon {
+          margin-right: 12px;
+        }
+
+        >.mat-icon-button {
+          margin: 0 4px 0 -10px;
+        }
+
+        >.mat-select {
+          margin-right: 10px;
+        }
+
+        >.mat-datepicker-toggle {
+          margin-left: -8px;
+        }
+
+        >*:not(.mat-icon):not(.mat-icon-button):not(.mat-select):not(.mat-datepicker-toggle) {
+          margin-right: 12px;
+        }
+      }
+
+      .mat-form-field-suffix {
+
+        >.mat-icon {
+          margin-left: 12px;
+        }
+
+        >.mat-icon-button {
+          margin: 0 -10px 0 4px;
+        }
+
+        >.mat-select {
+          margin-left: 10px;
+        }
+
+        >.mat-datepicker-toggle {
+          margin-right: -8px;
+        }
+      }
+
+      .mat-form-field-prefix,
+      .mat-form-field-suffix {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        @apply text-base #{!important};
+
+        .mat-icon-button {
+          width: 40px;
+          min-width: 40px;
+          height: 40px;
+          min-height: 40px;
+        }
+
+        .mat-icon,
+        .mat-icon-button:not(.mat-button-disabled),
+        .mat-select-value {
+          @apply text-base;
+        }
+
+        /* Remove the margins from the mat-icon if it's inside a button */
+        /* Force the icon size to 24 */
+        .mat-button,
+        .mat-raised-button,
+        .mat-icon-button,
+        .mat-stroked-button,
+        .mat-flat-button,
+        .mat-fab,
+        .mat-mini-fab {
+
+          .mat-icon {
+            margin: 0 !important;
+            @apply text-base;
+          }
+        }
+
+        /* Datepicker default icon size */
+        .mat-datepicker-toggle-default-icon {
+          @apply text-base;
+        }
+
+        /* Make mat-select usable as prefix and suffix */
+        .mat-select {
+          display: flex;
+          align-items: center;
+
+          &:focus {
+
+            .mat-select-trigger {
+
+              .mat-select-value {
+                @apply text-base #{!important};
+              }
+
+              .mat-select-arrow-wrapper {
+
+                .mat-select-arrow {
+                  border-top-color: slateblue !important;
+                }
+              }
+            }
+          }
+
+          .mat-select-trigger {
+            display: flex;
+            align-items: center;
+
+            .mat-select-value {
+              display: flex;
+              max-width: none;
+
+              mat-select-trigger {
+
+                .mat-icon {
+                  margin: 0 !important;
+                }
+              }
+            }
+
+            .mat-select-arrow-wrapper {
+              display: flex;
+              align-items: center;
+              transform: none;
+              margin-left: 4px;
+
+              .mat-select-arrow {
+                min-height: 0;
+                @apply text-gray-500 dark:text-gray-400 #{!important};
+              }
+            }
+          }
+        }
+      }
+
+      .mat-form-field-infix {
+        position: static;
+        display: flex;
+        align-items: center;
+        width: 88px;
+        padding: 0;
+        border: 0;
+
+        .mat-input-element {
+          padding: 14px 0;
+          margin-top: 0;
+        }
+
+        /* Textarea */
+        textarea.mat-input-element {
+          display: flex;
+          align-self: stretch;
+          min-height: 36px;
+          height: auto;
+          margin: 14px 0;
+          padding: 0 6px 0 0;
+          transform: none;
+        }
+
+        /* Select */
+        .mat-select {
+          display: inline-flex;
+
+          .mat-select-trigger {
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+
+            .mat-select-value {
+              display: flex;
+              position: relative;
+              max-width: none;
+
+              .mat-select-value-text {
+                display: inline-flex;
+
+                >* {
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+            }
+          }
+
+          .mat-select-arrow-wrapper {
+            transform: translateY(0);
+
+            .mat-select-arrow {
+              margin: 0 0 0 8px;
+            }
+          }
+        }
+
+        /* Chips */
+        .mat-chip-list {
+          width: 100%;
+          margin: 0 -8px;
+
+          .mat-chip-input {
+            margin: 0 0 0 8px;
+          }
+        }
+
+        .mat-form-field-label-wrapper {
+          top: -25px;
+          height: auto;
+          padding-top: 0;
+          overflow: visible;
+          pointer-events: auto;
+
+          .mat-form-field-label {
+            position: relative;
+            top: 0;
+            margin-top: 0;
+            backface-visibility: hidden;
+            transition: none;
+            font-weight: 500;
+            @apply text-base #{!important};
+          }
+        }
+      }
+    }
+
+    /* Remove the underline */
+    .mat-form-field-underline {
+      display: none;
+    }
+
+    /* Subscript tweaks */
+    .mat-form-field-subscript-wrapper {
+      position: relative;
+      top: auto;
+      padding: 0;
+      margin-top: 0;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+
+      >div {
+        display: contents;
+        /* Remove the div from flow to stop the subscript animation */
+      }
+
+      .mat-error,
+      .mat-hint {
+        display: block;
+        margin-top: 4px;
+      }
+
+      .mat-hint {
+        @apply text-base #{!important};
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="bg-gray-900 ">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span class="font-sans font-bold text-lg">Market Demo App</span>
+    <div class="flex items-center" *ngIf="!(isHandset$ | async)">
+      <button mat-button disabled>
+        <div class="text-white">
+          Opened Until 9PM
+        </div>
+      </button>
+    </div>
+    <div class="flex flex-1">
+    </div>
+    <div *ngIf="!(isHandset$ | async)" class="flex items-center gap-3">
+      <button mat-button>Expert Advice</button>
+      <button mat-button routerLink="/aboutus" class="border-solid">About Us</button>
+      <button mat-button>Track Order</button>
+      <button mat-button>
+        <mat-icon>person</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="!(isHandset$ | async)">
+    <div class="flex items-center gap-3">
+      <button mat-button>
+        <mat-icon>construction</mat-icon> Services
+      </button>
+      <button mat-button>
+        <mat-icon>loyalty</mat-icon> Promotions
+      </button>
+      <button mat-button>
+        <mat-icon>payments</mat-icon> Payment and Delivery
+      </button>
+    </div>
+    <div class="flex flex-1">
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button color="accent" mat-mini-fab>
+        <mat-icon class="material-icons-outlined">favorite</mat-icon>
+      </button>
+      <button color="accent" mat-mini-fab>
+        <mat-icon class="material-icons-outlined">share</mat-icon>
+      </button>
+      <button color="accent" mat-mini-fab>
+        <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container class="h-auto">
+
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class="p-3 ">
+      <span class="font-sans text-cyan-900 font-bold text-lg">My Demo APP</span>
+    </div>
+    <div class="p-3 column">
+      <ul>
+        <li class="m-2">
+          <button routerLink="/home"
+            class="bg-gray-800 w-full flex items-center hover:bg-gray-600 text-white font-medium font-sans py-2 px-4 rounded">
+            <mat-icon class="mr-3">home</mat-icon> Dashboard
+          </button>
+        </li>
+        <li class="m-2">
+          <button
+            class="bg-gray-800 w-full flex items-center hover:bg-gray-600 text-white font-medium font-sans py-2 px-4 rounded">
+            <mat-icon class="mr-3">shopping_cart_checkout</mat-icon> Orders
+          </button>
+        </li>
+        <li class="m-2">
+          <button
+            class="bg-gray-800 w-full flex items-center hover:bg-gray-600 text-white font-medium font-sans py-2 px-4 rounded">
+            <mat-icon class="mr-3">checkbox</mat-icon> Inventory
+          </button>
+        </li>
+        <li class="m-2">
+          <button (click)="changeThemeEmerald()"
+            class="bg-emerald-800 w-full flex items-center hover:bg-emerald-600 text-white font-medium font-sans py-2 px-4 rounded">
+            <mat-icon class="mr-3">edit</mat-icon> Emerald
+          </button>
+        </li>
+        <li class="m-2">
+          <button (click)="changeThemeViolet()"
+            class="bg-violet-800 w-full flex items-center hover:bg-violet-600 text-white font-medium font-sans py-2 px-4 rounded">
+            <mat-icon class="mr-3">edit</mat-icon> Violet
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div class="h-full w-full p-2 bg-gray-200">
+      <router-outlet></router-outlet>
+    </div>
+
+
+    <footer class="text-gray-600 body-font font-sans">
+      <div
+        class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-100">
+        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p class="text-gray-500 text-sm text-center sm:text-left">© 2022
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+            <a class="text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                viewBox="0 0 24 24">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                </path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-500">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
